@@ -83,7 +83,7 @@ const ErrorMessage = [
         ListHeaderComponent={renderHeader}
         data={data.length===0? ErrorMessage: data}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={()=>{navigation.navigate('PharmacyList',{item})}}>
+          <TouchableOpacity onPress={()=>{navigation.navigate('PharmacyList',{item});}}>
           <MedItemView item={item} />
           </TouchableOpacity>
         )}

@@ -4,7 +4,7 @@ import { Button,TextInput,Provider } from "react-native-paper";
 import DatePicker from 'react-native-datepicker';
 import DropDown from "react-native-paper-dropdown";
 
-const UploadPresc = ({navigation}) => {
+const Register = ({navigation}) => {
   const [date, setDate] = useState('09-10-2021');
   const [text, setText] = useState('');
   const [showDropDown, setShowDropDown] = useState(false);
@@ -27,7 +27,7 @@ const UploadPresc = ({navigation}) => {
   return (
     <Provider>
     <View style={styles.container}>
-      <Text style={styles.textStyle}>With PharmaFind it is easy to submit your prescription and check the availability of your medicine.</Text>
+      <Text style={styles.textStyle}>Please fill out the form with your details.</Text>
       <View style={styles.form} >
         <View style={{flexDirection:'column'}}>
           <View style={{flexDirection:'row',justifyContent:'space-evenly'}}>
@@ -48,8 +48,9 @@ const UploadPresc = ({navigation}) => {
 
           </View>
 
-          <View style={{flexDirection:'row',justifyContent:'space-evenly'}}>
-            
+          
+
+          <View style={{flexDirection:'column',justifyContent:'space-evenly'}}>
           <DropDown style={{width:'100%'}}
               label={"Gender"}
               mode={"outlined"}
@@ -61,17 +62,6 @@ const UploadPresc = ({navigation}) => {
               list={genderList}
               outlineColor='#9AC4F8'
             />
-            <TextInput
-            style={styles.inputstyle}
-            label='Body Weight'
-            mode='outlined'
-            outlineColor='#9AC4F8'
-            >  
-            </TextInput>
-
-          </View>
-
-          <View style={{flexDirection:'column',justifyContent:'space-evenly'}}>
           <DatePicker
           style={styles.datePickerStyle}
           date={date}
@@ -108,27 +98,60 @@ const UploadPresc = ({navigation}) => {
           }}
         />   
 
-        <TextInput style={styles.PrescInputStyle}
-            label="Prescription"
-            value={text}
-            multiline={true}
+<View style={{flexDirection:'column',justifyContent:'space-evenly'}}>
+            
+         
+            <TextInput
+            style={styles.inputstyle}
+            label='KMPDC Reg No.'
             mode='outlined'
             outlineColor='#9AC4F8'
-            onChangeText={text => setText(text)}
-           >
+            >  
+            </TextInput>
 
-           </TextInput>
+          </View>
+
+          <Text style={styles.textStyle}>Business Details</Text>
+          <View style={{flexDirection:'column',justifyContent:'space-evenly'}}>
+          <TextInput
+            style={styles.inputstyle2}
+            label='Business Name'
+            mode='outlined'
+            outlineColor='#9AC4F8'
+            >  
+            </TextInput>
+            <TextInput
+            style={styles.inputstyle2}
+            label='Address'
+            mode='outlined'
+            outlineColor='#9AC4F8'
+            >  
+            </TextInput>
+
+            <TextInput
+            style={styles.inputstyle2}
+            label='Health Safety Code'
+            mode='outlined'
+            outlineColor='#9AC4F8'
+            >  
+            </TextInput>
+
+            </View>
+
+
+
+
+        
 
           </View>
 
           
         </View>
-      <Button icon="camera-outline" color='blue' mode="outlined" style={{margin:10}} onPress={() => navigation.navigate('TakePicture')} > Take Photo</Button>
     
       </View>
 
       <View >
-      <Button color='#9AC4F8' mode="contained" style={{margin:10}} onPress={() => navigation.navigate('Feedback')} > Submit</Button>
+      <Button color='#9AC4F8' mode="contained" style={{margin:10}} onPress={() => navigation.navigate('Upload Medication')} > Submit</Button>
       </View>
 
     </View>
@@ -156,6 +179,12 @@ const styles = StyleSheet.create({
    marginRight:10,
    margin:10,
  },
+ inputstyle2:{
+    width:'100%',
+    marginLeft:10,
+    marginRight:10,
+    margin:10,
+  },
  PrescInputStyle:{
    width:'100%',
    height:100,
@@ -172,4 +201,4 @@ textStyle:{
 },
 });
 
-export default UploadPresc;
+export default Register;

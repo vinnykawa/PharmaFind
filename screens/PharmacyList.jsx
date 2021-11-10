@@ -5,13 +5,15 @@ import { DATA } from "../components/Data";
 
 
 
-const label = "Pharmacies";
+
 
 
 
 
 
 const List = ({item}) =>{
+  const label = "Pharmacies," + item.pharmacy;
+
     const url = Platform.select({
         ios: "maps:" + item.latitude + "," + item.longitude + "?q=" + label,
         android: "geo:" + item.latitude + "," + item.longitude + "?q=" + label
@@ -36,11 +38,12 @@ const List = ({item}) =>{
     
 
  const PharmacyList = (item) =>{
+   const image = item.image;
     return(
         <View style={styles.container}>
             <View style={styles.mainCardView}>
             <Image 
-            source={item.image}
+            source={require('../assets/pills.png')}
             style={{
               width: '100%',
               height: '50%',
